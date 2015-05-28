@@ -17,7 +17,10 @@ else $follow = false;
   			<li><a tabindex="-1" href="?c=dashboard&a=index&type=follow" ><?=__('TODO_FOLLOWED')?></a></li>
   			<?php do_action( 'UI_DASHBOARD_TODO_CATE_LAST' ); ?>
 		</ul>
-		<?php if(!$follow): ?><a href="javascript:todo_all_done();" class="side_link"><?=__('MARK_ALL_TODO_DONE')?></a><?php endif; ?>
+		<?php if(!$follow): ?><a href="javascript:todo_all_done();" class="side_link"><?=__('MARK_ALL_TODO_DONE')?></a>
+		<div class="todo_fliter" id="todo_fbtn" onclick="todo_fswitch_inc();void(0);"></div>
+		<?php endif; ?>
+
 	</div>
 	<?php do_action( 'UI_DASHBOARD_TODO_CATE_AFTER' ); ?>
 	

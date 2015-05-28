@@ -205,7 +205,11 @@ function load_todo( type )
 
 		// bind event
 		if( type != 'follow' )
+		{
 			bind_todo();
+			todo_fswitch_to($.cookie( 'tt2-sint'));	
+		}
+			
 		else
 			bind_follow_todo();
 
@@ -2036,6 +2040,57 @@ function close_all_side_board()
 	$('#tdboard').hide();
 	$('#fdboard').hide();	
 	//$('#side_container').css( 'visibility' , 'visible' );
+}
+
+function todo_fswitch_inc()
+{
+	var ii = parseInt($.cookie('tt2-sint'));
+	if( isNaN(ii) ) ii = 0;
+	ii++;
+	ii = ii%3;
+	todo_fswitch_to(ii);
+}
+
+function todo_fswitch_to( sint )
+{
+	console.log( sint );
+	if( isNaN(sint) ) sint = 0;
+	if( typeof sint == undefined )
+	{
+		sint = 0;
+	} 
+
+	 
+
+	if( sint == 1 )
+	{
+		// public 
+		$('li.blue').show();
+		$('li.red').hide();
+		$('#todo_fbtn').css( 'background' , 'url(static/image/icon_public.png) no-repeat' );
+	
+	}
+	else
+	{
+		if( sint == 2 )
+		{
+			// private
+			$('li.blue').hide();
+			$('li.red').show();
+			$('#todo_fbtn').css( 'background' , 'url(static/image/icon_private.png) no-repeat' );
+		}
+		else
+		{
+			// all
+			$('li.blue').show();
+			$('li.red').show();
+			$('#todo_fbtn').css( 'background' , 'url(static/image/icon_all.png) no-repeat' );
+		}		
+	}
+
+	$('#todo_fbtn').data('sint' , sint );
+	$.cookie( 'tt2-sint' , sint );
+
 }
 
 

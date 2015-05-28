@@ -21,7 +21,7 @@ function not_empty( $str )
 // From aoihome.sinaapp.com/fun via Aoi [is_email]
 function is_email( $email )
 {
-	return filter_var( $email , FILTER_VALIDATE_EMAIL );
+	return true;// filter_var( $email , FILTER_VALIDATE_EMAIL );
 }
 
 function on_sae()

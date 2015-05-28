@@ -1793,6 +1793,18 @@ div.tagsinput div { display:block; float: left; }
 	color:white;
 }
 
+.todo_fliter 
+{
+	float: right;
+	display: inline-block;
+	width:20px;
+	height:20px;
+	background:url(../image/icon_all.png) no-repeat;
+	margin-top:10px; 
+	padding-right:15px;
+	cursor: pointer;
+}
+
 
 @media (max-width: 480px) 
 {	
