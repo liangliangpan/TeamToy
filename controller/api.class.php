@@ -1402,8 +1402,20 @@ class apiController extends appController
 					}
 				}
 				
+				$sql = "UPDATE `todo_user` SET `" . s( $field ) . "` = '" . intval( $value ) . "' , `end_time` = NOW() WHERE `tid` = '" . intval( $tid ) . "' ";
+				run_sql( $sql );
+
+				$sql = "UPDATE `work_hours` SET `left_hours` = 0 WHERE `tid` = '" . intval( $tid ) . "' ";
+				run_sql( $sql );
+
 				
-				
+			}else if($field == 'status' && $value == 2){
+				$sql = "UPDATE `todo_user` SET `" . s( $field ) . "` = '" . intval( $value ) . "' , `start_time` = NOW(), end_time = null WHERE `tid` = '" . intval( $tid ) . "' ";
+				run_sql( $sql );
+			}
+			else if($field == 'status' && $value == 1){
+				$sql = "UPDATE `todo_user` SET `" . s( $field ) . "` = '" . intval( $value ) . "' , `start_time` = null, end_time = null WHERE `tid` = '" . intval( $tid ) . "' ";
+				run_sql( $sql );
 			}
 			
 			

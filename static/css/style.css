@@ -1795,7 +1795,7 @@ div.tagsinput div { display:block; float: left; }
 
 .todo_fliter 
 {
-	float: right;
+	right: 0px;
 	display: inline-block;
 	width:20px;
 	height:20px;
@@ -1803,6 +1803,7 @@ div.tagsinput div { display:block; float: left; }
 	margin-top:10px; 
 	padding-right:15px;
 	cursor: pointer;
+	position:absolute;
 }
 
 
