@@ -1193,6 +1193,14 @@ class apiController extends appController
 				$todos[$t['id']]['content'] = $t['content'];
 				$todos[$t['id']]['timeline'] = $t['timeline'];
 			}
+
+			$sql = "SELECT * FROM `work_hours` WHERE `tid` IN ( " . join( ' , ' ,  $tids ) . ") ORDER BY FIELD( `tid` , " . join( ' , ' , $tids ) . "  )";
+			$todo = get_data( $sql );
+			foreach( $todo as $t )
+			{
+				$todos[$t['tid']]['left_hours'] = $t['left_hours'];
+				$todos[$t['tid']]['plan_hours'] = $t['plan_hours'];
+			}
 			
 			// todo : sort it 
 			
