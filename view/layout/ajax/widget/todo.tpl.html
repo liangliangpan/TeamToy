@@ -6,7 +6,8 @@
 		<div class="todo_row" title="<?=$item['content']?>">
 			<a class="item" ><?=$item['content']?></a>
 	<div class="dashboard_todo_plan_hours_bar"  style="width: <?=100*($item['plan_hours']/(float)20)?>%;" plan_hours='<?=$item['plan_hours']?>' left_hours="<?=$item['left_hours']?>"></div>
-		</div>
+	<div class="dashboard_todo_plan_hours_bar"  style="background-color:green;width: <?=100*(($item['plan_hours']-$item['left_hours'])/(float)20)?>%;"></div>	
+	</div>
 	</div>
 </li>
 <?php do_action( 'UI_TODO_ITEM_AFTER' , $item ); ?>
